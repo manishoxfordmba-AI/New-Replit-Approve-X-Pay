@@ -1,0 +1,25 @@
+-	Change “Business Impact that Matters” section with a large and visible card having “1% approval uplift can generate $1M+ incremental annual revenue for merchants processing $100M.” message
+-	Change all “Free discovery call” buttons text to “ Book a Free Audit” 
+-	Change “”Explore our services” button text to “See How much revenue you are losing”
+-	“The problem” section  - in each card “of failure” text need to be inline with “%” for example not just 38% but “38% failures”. Also remove “38% of payment failures” at the end of the card. Apply these changes to all the 5 cards
+-	Make all the 5 cards little small
+-	Add “Business Impact” heading
+-	Business impact section change “High Churn” to “10-25%” high churn”; change “+CAC” to “+10-30% CAC”
+-	After business impact section add “Quantify your loss” section and move “Revenue Calculator” section to “Quantify your loss” section
+-	Move “Cost of your inaction” section after “Quantify your loss” 
+-	At the end of “Cost of your inaction” add a CTA button “Contact US for recovery”. On click of “Contact US for recovery” open contact Manish form. Collecting Name, work email, Company, Phone no, Annual payment volume (Drop down with categories <$10M , $10 - $50M, $50M - $200M, $200M - $1B, >$1B), Message.
+-	At the click of “Send message” send message to contact@ApproveXPay.com
+-	Change “Process” section to “Engagement Model”
+-	Change “From audit to outcomes in 4 weeks.” To “From audit to outcomes in 8 weeks.”
+-	Add “business impact” in the top navigation bar also and link it to “business impact” section 
+-	Add “ Contact US” in top navigation bar. And on click open contact Manish form.
+-	Remove “Millions lost! Want to recover?” section completely
+-	Change the footer as per attached
+-	Remove “Plus: Continuous monitoring of authorization rates and PSP performance with executive reporting” section
+-	Call Booking engine: “Schedule Discovery Call” popup doesn’t have all the time zones – Time zone should be searchable
+-	My availability is from Monday to Saturday from 6am IST to 12pm IST. 
+-	On “select date & time” pupup available time slots should be in client’s time zone. And overlapping slot between client’s 9:00am to 6:00pm and my availability should only be shown.
+-	Time slots should be at the step of 30 mins. For example first slot is at 9:00am then next slot should be at 9:30am and so on so forth.
+-	After section of time slot, on your details popup collect (all field mandatory) Name, work email, Company, Phone no, Annual payment volume (Drop down with categories <$10M , $10 - $50M, $50M - $200M, $200M - $1B, >$1B), Message. Then have “confirm booking” button.
+-	On click of “confirm booking” button send a g-meet calendar invite to customer email id and manish@approvexpay.com id. Sender should be contact@approvexpay.com 
+-	On “You’re booked!” page, change “A calendar invitation has been sent to your email.” To “ We appreciate your interest and ApproveXPay has sent a calendar invitation to your email. Look forward!”
