@@ -153,14 +153,14 @@ export default function HomePage() {
                 We recover it.
               </h1>
               <p className="text-lg md:text-xl text-white/70 max-w-[520px] leading-relaxed">
-                5—15% of transactions fail across fintech and e-commerce platforms. A significant portion are avoidable. We identify the root causes and build the orchestration layer to recover that revenue — systematically.
+                5—15% of transactions fail across fintech and e-commerce platforms. A significant portion is avoidable. We identify the root causes and build the orchestration layer to recover that revenue — systematically. <span className="text-red-400 font-semibold">Inaction cost businesses significantly! Act Now!</span>
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button onClick={() => setBookingOpen(true)} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl px-8 py-6 text-lg font-medium shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-white/10">
                   <CalendarIcon className="w-5 h-5 mr-2" /> Book a Free Audit
                 </Button>
                 <Button variant="outline" onClick={() => scrollTo("quantify")} className="bg-white/5 hover:bg-white/10 text-white border-white/10 rounded-xl px-8 py-6 text-lg font-medium backdrop-blur-sm">
-                  See How Much Revenue You Are Losing <ArrowRight className="w-5 h-5 ml-2" />
+                  Quantify Your Loss <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>
             </motion.div>
@@ -172,7 +172,7 @@ export default function HomePage() {
                 <div className="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-6">Business Impact That Matters</div>
                 <div className="rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 p-7 text-center space-y-4">
                   <div className="text-5xl md:text-6xl font-serif font-extrabold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent leading-none">$1M+</div>
-                  <p className="text-white/90 text-lg font-semibold leading-snug">incremental annual revenue</p>
+                  <p className="text-white/90 text-lg font-semibold leading-snug">incremental annual revenue loss</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
                   <p className="text-white/60 text-sm leading-relaxed">
                     <span className="text-cyan-300 font-bold">1% approval uplift</span> can generate <span className="text-emerald-300 font-bold">$1M+ incremental annual revenue</span> for merchants processing <span className="text-white font-semibold">$100M</span> per month.
@@ -245,6 +245,67 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
+
+          {/* QUANTIFY YOUR LOSS — moved here from standalone section */}
+          <div id="quantify" className="mt-20 relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent pointer-events-none rounded-[32px]" />
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
+              <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">Quantify Your Loss</span>
+              <h2 className="text-4xl md:text-5xl font-serif mb-3">Calculate Your Revenue Leakage</h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">Estimate how much revenue your payment stack is losing — and how much you could recover.</p>
+            </motion.div>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white/[0.03] border border-white/10 rounded-[24px] p-7 space-y-7">
+                  <h3 className="text-base font-bold text-white/70">Your Payment Stats</h3>
+                  <div className="space-y-2.5">
+                    <div className="flex justify-between items-baseline">
+                      <Label className="text-white/65 text-sm font-semibold">Monthly Revenue Processed</Label>
+                      <span className="text-cyan-400 font-bold">{fmtRevenue(monthlyRevMil)}</span>
+                    </div>
+                    <input type="range" min={0} max={10000} step={50} value={monthlyRevMil} onChange={(e) => setMonthlyRevMil(Number(e.target.value))} className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-cyan-400 bg-white/10" />
+                    <div className="flex justify-between text-xs text-white/25"><span>$0</span><span>$10B</span></div>
+                  </div>
+                  <div className="space-y-2.5">
+                    <div className="flex justify-between items-baseline">
+                      <Label className="text-white/65 text-sm font-semibold">Current Failure Rate</Label>
+                      <span className="text-red-400 font-bold">{failureRate}%</span>
+                    </div>
+                    <input type="range" min={1} max={50} step={0.5} value={failureRate} onChange={(e) => setFailureRate(Number(e.target.value))} className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-red-400 bg-white/10" />
+                    <div className="flex justify-between text-xs text-white/25"><span>1%</span><span>50%</span></div>
+                  </div>
+                  <div className="space-y-2.5">
+                    <div className="flex justify-between items-baseline">
+                      <Label className="text-white/65 text-sm font-semibold">Failure Recovery</Label>
+                      <span className="text-emerald-400 font-bold">{recoveryPct}%</span>
+                    </div>
+                    <input type="range" min={1} max={80} step={1} value={recoveryPct} onChange={(e) => setRecoveryPct(Number(e.target.value))} className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-emerald-400 bg-white/10" />
+                    <div className="flex justify-between text-xs text-white/25"><span>1%</span><span>80%</span></div>
+                    <p className="text-xs text-white/35">Industry benchmark: 55–65% of failures are recoverable</p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <div className="flex-1 bg-gradient-to-br from-red-900/30 to-red-950/30 border border-red-500/20 rounded-[20px] p-6 flex flex-col justify-center">
+                    <p className="text-red-300 text-xs font-semibold uppercase tracking-wider mb-1">Monthly Revenue Leakage</p>
+                    <div className="text-4xl font-serif font-extrabold text-red-300 mb-1">{formatCurrency(leakageMonthly)}</div>
+                    <p className="text-white/40 text-sm">Lost to failed transactions each month</p>
+                  </div>
+                  <div className="flex-1 bg-gradient-to-br from-emerald-900/30 to-emerald-950/30 border border-emerald-500/20 rounded-[20px] p-6 flex flex-col justify-center">
+                    <p className="text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-1">Recoverable Monthly</p>
+                    <div className="text-4xl font-serif font-extrabold text-emerald-300 mb-1">{formatCurrency(recoverableMonthly)}</div>
+                    <p className="text-white/40 text-sm">Potential monthly recovery with orchestration</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/30 border border-cyan-500/30 rounded-[20px] p-5 text-center">
+                    <p className="text-cyan-300 text-xs font-semibold mb-1">Annual Recovery Opportunity</p>
+                    <div className="text-3xl font-serif font-extrabold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">{formatCurrency(recoverableAnnual)}</div>
+                    <Button onClick={() => setBookingOpen(true)} className="mt-4 w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl py-5 font-semibold shadow-[0_0_30px_rgba(37,99,235,0.3)]">
+                      <CalendarIcon className="w-4 h-4 mr-2" /> Recover This Revenue
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -292,102 +353,6 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* QUANTIFY YOUR LOSS */}
-      <section id="quantify" className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
-            <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">Quantify Your Loss</span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-3">Calculate Your Revenue Leakage</h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">Estimate how much revenue your payment stack is losing — and how much you could recover.</p>
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white/[0.03] border border-white/10 rounded-[24px] p-7 space-y-7">
-                <h3 className="text-base font-bold text-white/70">Your Payment Stats</h3>
-
-                <div className="space-y-2.5">
-                  <div className="flex justify-between items-baseline">
-                    <Label className="text-white/65 text-sm font-semibold">Monthly Revenue Processed</Label>
-                    <span className="text-cyan-400 font-bold">{fmtRevenue(monthlyRevMil)}</span>
-                  </div>
-                  <input type="range" min={0} max={10000} step={50} value={monthlyRevMil} onChange={(e) => setMonthlyRevMil(Number(e.target.value))} className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-cyan-400 bg-white/10" />
-                  <div className="flex justify-between text-xs text-white/25"><span>$0</span><span>$10B</span></div>
-                </div>
-
-                <div className="space-y-2.5">
-                  <div className="flex justify-between items-baseline">
-                    <Label className="text-white/65 text-sm font-semibold">Current Failure Rate</Label>
-                    <span className="text-red-400 font-bold">{failureRate}%</span>
-                  </div>
-                  <input type="range" min={1} max={50} step={0.5} value={failureRate} onChange={(e) => setFailureRate(Number(e.target.value))} className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-red-400 bg-white/10" />
-                  <div className="flex justify-between text-xs text-white/25"><span>1%</span><span>50%</span></div>
-                </div>
-
-                <div className="space-y-2.5">
-                  <div className="flex justify-between items-baseline">
-                    <Label className="text-white/65 text-sm font-semibold">Failure Recovery</Label>
-                    <span className="text-emerald-400 font-bold">{recoveryPct}%</span>
-                  </div>
-                  <input type="range" min={1} max={80} step={1} value={recoveryPct} onChange={(e) => setRecoveryPct(Number(e.target.value))} className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-emerald-400 bg-white/10" />
-                  <div className="flex justify-between text-xs text-white/25"><span>1%</span><span>80%</span></div>
-                  <p className="text-xs text-white/35">Industry benchmark: 55–65% of failures are recoverable</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div className="flex-1 bg-gradient-to-br from-red-900/30 to-red-950/30 border border-red-500/20 rounded-[20px] p-6 flex flex-col justify-center">
-                  <p className="text-red-300 text-xs font-semibold uppercase tracking-wider mb-1">Monthly Revenue Leakage</p>
-                  <div className="text-4xl font-serif font-extrabold text-red-300 mb-1">{formatCurrency(leakageMonthly)}</div>
-                  <p className="text-white/40 text-sm">Lost to failed transactions each month</p>
-                </div>
-                <div className="flex-1 bg-gradient-to-br from-emerald-900/30 to-emerald-950/30 border border-emerald-500/20 rounded-[20px] p-6 flex flex-col justify-center">
-                  <p className="text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-1">Recoverable Monthly</p>
-                  <div className="text-4xl font-serif font-extrabold text-emerald-300 mb-1">{formatCurrency(recoverableMonthly)}</div>
-                  <p className="text-white/40 text-sm">Potential monthly recovery with orchestration</p>
-                </div>
-                <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/30 border border-cyan-500/30 rounded-[20px] p-5 text-center">
-                  <p className="text-cyan-300 text-xs font-semibold mb-1">Annual Recovery Opportunity</p>
-                  <div className="text-3xl font-serif font-extrabold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">{formatCurrency(recoverableAnnual)}</div>
-                  <Button onClick={() => setBookingOpen(true)} className="mt-4 w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl py-5 font-semibold shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-                    <CalendarIcon className="w-4 h-4 mr-2" /> Recover This Revenue
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* COST OF INACTION */}
-      <section id="cost-of-inaction" className="py-20 bg-[#0a0f1e]">
-        <div className="container mx-auto px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-12 text-center">
-            <h3 className="text-3xl md:text-4xl font-serif font-extrabold mb-3">The Cost of Inaction</h3>
-            <p className="text-white/55 text-lg">Every month without optimization is revenue that doesn't come back.</p>
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto mb-12">
-            {businessImpactCards.map((card, i) => (
-              <div key={i} className="p-6 rounded-[18px] bg-[#030712] border border-red-500/10 flex flex-col gap-3">
-                <div className="flex items-center gap-2">
-                  {card.icon}
-                  <h4 className="font-bold text-white/90 text-sm">{card.title}</h4>
-                </div>
-                <p className="text-xs text-white/50 leading-relaxed flex-grow">{card.desc}</p>
-              </div>
-            ))}
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center">
-            <Button
-              onClick={() => setContactOpen(true)}
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl px-10 py-7 text-lg font-semibold shadow-[0_0_40px_rgba(37,99,235,0.35)]"
-            >
-              <CalendarIcon className="w-5 h-5 mr-2" /> Contact Us for Recovery
-            </Button>
-          </motion.div>
         </div>
       </section>
 

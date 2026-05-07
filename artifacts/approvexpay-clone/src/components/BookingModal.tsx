@@ -48,21 +48,10 @@ const MANISH_START_UTC = 30;  // 00:30 UTC
 const MANISH_END_UTC = 390;   // 06:30 UTC
 
 function getAvailableSlots(clientOffsetMin: number): string[] {
-  // Client's 9am in UTC minutes
-  const clientStart = 9 * 60 - clientOffsetMin;
-  // Client's 6pm in UTC minutes
-  const clientEnd = 18 * 60 - clientOffsetMin;
-
-  const overlapStart = Math.max(MANISH_START_UTC, clientStart);
-  const overlapEnd = Math.min(MANISH_END_UTC, clientEnd);
-
-  if (overlapEnd <= overlapStart) return [];
-
   const slots: string[] = [];
-  // Generate every 30-min slot within overlap
-  let t = Math.ceil(overlapStart / 30) * 30;
-  while (t < overlapEnd && t < MANISH_END_UTC) {
-    // Convert to client local time
+  // Show all of Manish's slots (6am–12pm IST) converted to client's local timezone
+  let t = MANISH_START_UTC;
+  while (t < MANISH_END_UTC) {
     const localMin = ((t + clientOffsetMin) % 1440 + 1440) % 1440;
     const h = Math.floor(localMin / 60);
     const m = localMin % 60;
