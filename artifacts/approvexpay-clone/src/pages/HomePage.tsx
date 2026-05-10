@@ -149,22 +149,22 @@ export default function HomePage() {
               <h1 className="text-5xl md:text-6xl lg:text-[clamp(3rem,5vw,4.5rem)] leading-[1.1] font-serif font-extrabold tracking-tight">
                 Your Payment Stack<br />
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">is Leaking Revenue.</span><br />
-                ApproveXPay helps Recover It.
+                <span className="text-3xl md:text-4xl font-bold">ApproveXPay helps Recover It.</span>
               </h1>
               <p className="text-lg md:text-xl text-white/70 max-w-[540px] leading-relaxed">
                 ApproveXPay helps high volume digital businesses improve authorization rates, reduce false declines and recover lost revenue across gateways, issuers, acquirers, PSPs and geographies.
                 <br /><br />
                 <span className="text-white/55 text-base italic">Servicing fintechs, subscription businesses, marketplaces, gaming, travel and PE/VC–backed companies.</span>
               </p>
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Button onClick={() => setBookingOpen(true)} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl px-7 py-5 text-base font-semibold shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-white/10">
-                  <CalendarIcon className="w-4 h-4 mr-2" /> Book Advisory Call
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                <Button onClick={() => setBookingOpen(true)} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-lg px-4 py-2 text-sm font-semibold shadow-[0_0_20px_rgba(37,99,235,0.3)] border border-white/10 h-auto">
+                  <CalendarIcon className="w-3.5 h-3.5 mr-1.5" /> Book Advisory Call
                 </Button>
-                <Button variant="outline" onClick={() => setContactOpen(true)} className="bg-white/5 hover:bg-white/10 text-white border-white/10 rounded-xl px-7 py-5 text-base font-medium backdrop-blur-sm">
+                <Button variant="outline" onClick={() => setContactOpen(true)} className="bg-white/5 hover:bg-white/10 text-white border-white/10 rounded-lg px-4 py-2 text-sm font-medium backdrop-blur-sm h-auto">
                   Request Payment Assessment
                 </Button>
-                <Button onClick={() => setBookingOpen(true)} className="bg-white/[0.06] hover:bg-white/[0.10] text-cyan-300 border border-cyan-500/30 rounded-xl px-7 py-5 text-base font-medium backdrop-blur-sm">
-                  Discuss Revenue Uplift <ArrowRight className="w-4 h-4 ml-2" />
+                <Button onClick={() => setBookingOpen(true)} className="bg-white/[0.06] hover:bg-white/[0.10] text-cyan-300 border border-cyan-500/30 rounded-lg px-4 py-2 text-sm font-medium backdrop-blur-sm h-auto">
+                  Discuss Revenue Uplift <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                 </Button>
               </div>
             </motion.div>
@@ -173,13 +173,13 @@ export default function HomePage() {
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative lg:ml-auto w-full max-w-[500px]">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-[24px] blur-2xl" />
               <div className="relative bg-white/[0.04] border border-white/10 rounded-[24px] p-8 backdrop-blur-xl shadow-2xl">
-                <div className="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-6">Business Impact That Matters</div>
+                <div className="text-sm font-extrabold tracking-widest uppercase mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]">Business Impact That Matters</div>
                 <div className="rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 p-7 text-center space-y-4">
                   <div className="text-5xl md:text-6xl font-serif font-extrabold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent leading-none">$1M+</div>
-                  <p className="text-white/90 text-lg font-semibold leading-snug">incremental annual revenue loss</p>
+                  <p className="text-white/90 text-lg font-semibold leading-snug">incremental monthly revenue loss</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
                   <p className="text-white/60 text-sm leading-relaxed">
-                    <span className="text-cyan-300 font-bold">1% approval uplift</span> can generate <span className="text-emerald-300 font-bold">$1M+ incremental annual revenue</span> for businesses processing <span className="text-white font-semibold">$100M</span> per month.
+                    A <span className="text-cyan-300 font-bold">1% approval uplift</span> can unlock <span className="text-emerald-300 font-bold">$1M+/month</span> in incremental revenue on <span className="text-white font-semibold">$100M</span> monthly processing volume.
                   </p>
                 </div>
                 <div className="mt-5 grid grid-cols-3 gap-3 text-center">
@@ -206,7 +206,7 @@ export default function HomePage() {
       <section id="problem" className="py-20 bg-[#0a0f1e]">
         <div className="container mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-12">
-            <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">The Problem</span>
+            <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">The Problem & Root Causes</span>
             <h2 className="text-4xl md:text-5xl font-serif mb-4">Failed payments aren't always genuine declines.</h2>
             <p className="text-lg text-white/60 max-w-3xl">Most payment failures are misdiagnosed as customer issues. The real cause is operational — and fixable.</p>
           </motion.div>
@@ -226,6 +226,21 @@ export default function HomePage() {
                 <p className="text-white/55 text-sm leading-relaxed flex-grow">{card.desc}</p>
               </motion.div>
             ))}
+            {/* Highlighted ApproveXPay solution card */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="relative overflow-hidden rounded-[16px] p-5 flex flex-col gap-3 border border-cyan-500/40 bg-gradient-to-br from-cyan-500/10 via-blue-600/10 to-cyan-500/5 shadow-[0_0_30px_rgba(6,182,212,0.12)]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="flex items-center gap-2 mb-1">
+                <ShieldCheck className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                <span className="text-xs font-bold tracking-widest text-cyan-400 uppercase">ApproveXPay Solution</span>
+              </div>
+              <p className="text-base font-semibold text-white leading-snug">
+                ApproveXPay identifies and fixes the root causes behind failed payments to increase approvals and recover revenue.
+              </p>
+              <div className="mt-auto pt-2 border-t border-cyan-500/20">
+                <span className="text-xs text-cyan-300/70 font-medium">Systematic. Measurable. Proven.</span>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -303,7 +318,7 @@ export default function HomePage() {
                     <p className="text-cyan-300 text-xs font-semibold mb-1">Annual Recovery Opportunity</p>
                     <div className="text-3xl font-serif font-extrabold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">{formatCurrency(recoverableAnnual)}</div>
                     <Button onClick={() => setBookingOpen(true)} className="mt-4 w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl py-5 font-semibold shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-                      <CalendarIcon className="w-4 h-4 mr-2" /> Recover This Revenue
+                      <CalendarIcon className="w-4 h-4 mr-2" /> Recover Declined Revenue
                     </Button>
                   </div>
                 </div>
@@ -365,6 +380,9 @@ export default function HomePage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-14">
             <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">Ideal Clients & Engagement Model</span>
             <h2 className="text-4xl md:text-5xl font-serif mb-4">From audit to outcomes in 8 weeks.</h2>
+            <div className="mb-5 p-5 rounded-[16px] border border-cyan-500/25 bg-gradient-to-r from-cyan-500/8 to-blue-600/8 max-w-3xl">
+              <p className="text-white/80 text-base leading-relaxed">We work with <span className="text-cyan-300 font-semibold">high volume digital businesses</span>, fintechs scaling payment platforms, subscription platforms, marketplaces and PE/VC-backed companies where payment performance directly impacts growth and revenue.</p>
+            </div>
             <p className="text-lg text-white/60 max-w-3xl">We don't just deliver decks. We work alongside your engineering and product teams to implement changes with a bias for rapid, measurable improvements.</p>
           </motion.div>
           <div className="relative max-w-4xl mx-auto">

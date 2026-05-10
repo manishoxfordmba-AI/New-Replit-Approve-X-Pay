@@ -24,7 +24,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
     const body = encodeURIComponent(
       `Name: ${form.name}\nWork Email: ${form.email}\nCompany: ${form.company}\nPhone: ${form.phone}\nAnnual Payment Volume: ${form.volume}\n\nMessage:\n${form.message}`
     );
-    window.open(`mailto:contact@approvexpay.com?subject=${subject}&body=${body}`, "_blank");
+    window.location.href = `mailto:contact@approvexpay.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 

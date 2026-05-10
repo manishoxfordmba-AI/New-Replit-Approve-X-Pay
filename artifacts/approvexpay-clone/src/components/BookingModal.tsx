@@ -68,40 +68,6 @@ function formatDate(d: Date | undefined) {
   return d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 }
 
-function generateICS(date: Date, timeSlot: string, name: string, email: string, tzLabel: string) {
-  // Parse time slot back to build a datetime
-  const now = new Date(date);
-  const [timePart, ampm] = timeSlot.split(" ");
-  const [hStr, mStr] = timePart.split(":");
-  let h = parseInt(hStr);
-  const m = parseInt(mStr);
-  if (ampm === "PM" && h !== 12) h += 12;
-  if (ampm === "AM" && h === 12) h = 0;
-  now.setHours(h, m, 0, 0);
-
-  const pad = (n: number) => n.toString().padStart(2, "0");
-  const fmtDt = (d: Date) =>
-    `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
-
-  const end = new Date(now.getTime() + 30 * 60 * 1000);
-
-  return [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//ApproveXPay//Booking//EN",
-    "BEGIN:VEVENT",
-    `DTSTART:${fmtDt(now)}`,
-    `DTEND:${fmtDt(end)}`,
-    "SUMMARY:ApproveXPay – Payment Revenue Discovery Call",
-    `DESCRIPTION:Discovery call with Manish Gupta\\, ApproveXPay.\\nTimezone: ${tzLabel}`,
-    `ORGANIZER;CN=ApproveXPay:mailto:contact@approvexpay.com`,
-    `ATTENDEE;CN=${name};RSVP=TRUE:mailto:${email}`,
-    `ATTENDEE;CN=Manish Gupta;RSVP=TRUE:mailto:manish@approvexpay.com`,
-    "STATUS:CONFIRMED",
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
-}
 
 export function BookingModal({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
   const [step, setStep] = useState(1);
@@ -134,20 +100,12 @@ export function BookingModal({ open, onOpenChange }: { open: boolean; onOpenChan
   const confirmBooking = () => {
     if (!date || !timeSlot || !selectedTz) return;
 
-    // Generate ICS and trigger download
-    const ics = generateICS(date, timeSlot, details.name, details.email, selectedTz.label);
-    const blob = new Blob([ics], { type: "text/calendar" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url; a.download = "approvexpay-booking.ics"; a.click();
-    URL.revokeObjectURL(url);
-
-    // Also open mailto to notify Manish
-    const subject = encodeURIComponent(`Booking: ${details.name} – ${formatDate(date)} at ${timeSlot}`);
+    // Send confirmation email to client from Manish's address
+    const subject = encodeURIComponent(`Your ApproveXPay Advisory Call – ${formatDate(date)} at ${timeSlot}`);
     const body = encodeURIComponent(
-      `New Discovery Call Booking\n\nDate: ${formatDate(date)}\nTime: ${timeSlot} (${selectedTz.label})\n\nClient Details:\nName: ${details.name}\nEmail: ${details.email}\nCompany: ${details.company}\nPhone: ${details.phone}\nAnnual Payment Volume: ${details.volume}\n\nMessage:\n${details.message}`
+      `Dear ${details.name},\n\nThank you for scheduling an Advisory Call with ApproveXPay.\n\nAppointment Confirmation:\nDate: ${formatDate(date)}\nTime: ${timeSlot} (${selectedTz.label})\n\nYour Details:\nName: ${details.name}\nCompany: ${details.company}\nPhone: ${details.phone}\nAnnual Payment Volume: ${details.volume}\n\nNote: ${details.message}\n\nManish Gupta will connect with you at the scheduled time. Please reach out at manish@approvexpay.com if you need to reschedule.\n\nLooking forward to speaking with you.\n\nBest regards,\nManish Gupta\nFounder & CEO, ApproveXPay\nmanish@approvexpay.com`
     );
-    window.open(`mailto:manish@approvexpay.com?cc=${encodeURIComponent(details.email)}&subject=${subject}&body=${body}`, "_blank");
+    window.location.href = `mailto:${details.email}?cc=manish@approvexpay.com&subject=${subject}&body=${body}`;
 
     setStep(4);
   };
@@ -361,7 +319,7 @@ export function BookingModal({ open, onOpenChange }: { open: boolean; onOpenChan
                   <CheckCircle2 className="w-8 h-8 text-emerald-400" />
                 </div>
                 <h2 className="text-3xl font-serif">You're booked!</h2>
-                <p className="text-white/60 max-w-sm mx-auto">We appreciate your interest and ApproveXPay has sent a calendar invitation to your email. Look forward!</p>
+                <p className="text-white/60 max-w-sm mx-auto">Your booking request is confirmed. A confirmation email has been sent to <span className="text-cyan-400">{details.email}</span>. Manish will connect with you at the scheduled time.</p>
 
                 <div className="p-4 bg-white/5 border border-white/10 rounded-xl max-w-sm mx-auto text-left space-y-2">
                   <p className="text-xs text-white/40 uppercase tracking-wider">Your Appointment</p>
@@ -370,7 +328,7 @@ export function BookingModal({ open, onOpenChange }: { open: boolean; onOpenChan
                   {details.name && <p className="text-white/50 text-xs mt-2">Confirmation sent to {details.email}</p>}
                 </div>
 
-                <p className="text-white/30 text-xs">A .ics calendar file was also downloaded for your calendar app.</p>
+                <p className="text-white/30 text-xs">Need to reschedule? Email manish@approvexpay.com</p>
 
                 <Button className="bg-white/10 hover:bg-white/20 text-white rounded-lg px-8" onClick={() => handleClose(false)}>Close</Button>
               </motion.div>
