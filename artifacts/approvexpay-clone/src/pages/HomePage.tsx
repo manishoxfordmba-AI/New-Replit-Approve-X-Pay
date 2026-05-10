@@ -71,35 +71,35 @@ export default function HomePage() {
       num: "01", title: "Revenue Recovery & Approval Uplift",
       sub: "Increase payment authorization approvals and recover hidden revenue.",
       highlights: ["2–8% approval uplift opportunity", "Multi-million dollar revenue recovery"],
-      whatWeDo: ["Analyze decline patterns", "Identify false decline opportunities", "Improve approval rates across geographies", "Optimize authorization performance", "Recover lost revenue"],
-      deliverables: ["Approval uplift roadmap", "Decline analysis", "Issuer/acquirer optimization recommendations", "KPI dashboard recommendations"]
+      whatWeDo: ["Analyze decline patterns across geographies and currencies", "Identify false decline opportunities by issuer and BIN", "Optimize authorization performance across PSPs and acquirers"],
+      deliverables: ["Approval uplift roadmap", "Decline analysis report", "KPI dashboard recommendations"]
     },
     {
       num: "02", title: "Payment Orchestration Strategy & Build",
       sub: "Design scalable payment architecture for performance and resilience.",
       highlights: ["3–10% approval improvement in multi-PSP environments", "Reduced payment failure concentration"],
-      whatWeDo: ["Multi-PSP strategy", "Acquirer optimization", "Routing architecture", "Failover design", "Token strategy", "Smart retry framework"],
-      deliverables: ["Orchestration blueprint", "Vendor evaluation support", "Routing logic design", "Future-state architecture"]
+      whatWeDo: ["Multi-PSP and multi-currency routing strategy", "Acquirer optimization across geographies", "Intelligent failover and smart retry framework"],
+      deliverables: ["Orchestration blueprint", "Vendor evaluation support", "Future-state multi-geo architecture"]
     },
     {
       num: "03", title: "Decline Diagnostic Assessment",
       sub: "Identify where and why approvals are failing.",
       highlights: ["20–40% recoverable decline opportunities", "Visibility into issuer, routing, and retry inefficiencies"],
-      whatWeDo: ["Decline code analysis", "Decline categorization by root cause", "Issuer trend analysis", "BIN-level diagnostics"],
+      whatWeDo: ["Decline code analysis by market and currency", "Decline categorization by root cause", "Issuer trend and BIN-level diagnostics"],
       deliverables: ["Root cause report", "Revenue leakage assessment", "Prioritized optimization actions"]
     },
     {
       num: "04", title: "Intelligent Routing Strategy",
       sub: "Route transactions dynamically to maximize approval probability.",
       highlights: ["2–6% approval uplift", "Reduced cross-border decline concentration"],
-      whatWeDo: ["Acquirer routing optimization", "BIN routing", "Geographic routing", "Cost-performance balancing", "Retry routing logic"],
+      whatWeDo: ["Acquirer routing optimization by region and BIN", "Geographic and multi-currency routing logic", "Cost-performance balancing across corridors"],
       deliverables: ["Routing decision framework", "Performance optimization matrix", "Routing recommendation engine logic"]
     },
     {
       num: "05", title: "Smart Retry Optimization",
       sub: "Recover failed payments intelligently.",
       highlights: ["10–20% soft-declined transactions recovered", "Improved subscription payment recovery rates"],
-      whatWeDo: ["Retry timing optimization", "Issuer-aware retry strategy", "Retry logic segmentation", "Subscription retry strategy"],
+      whatWeDo: ["Retry timing optimization by decline code and market", "Issuer-aware retry strategy across regions", "Subscription retry strategy for recurring billing"],
       deliverables: ["Retry playbook", "Recovery optimization framework", "Retry sequencing strategy"]
     },
   ];
@@ -111,7 +111,6 @@ export default function HomePage() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#030712]/80 backdrop-blur-md border-b border-white/5" : "bg-transparent"} py-4`}>
         <div className="container mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            <img src="https://hercules-cdn.com/file_E2Kto5hqQfdbFSbDy30zHMdC" alt="ApproveXPay" className="h-8 rounded-full" />
             <span className="font-serif text-xl font-bold tracking-wide">ApproveXPay</span>
           </div>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-white/70">
@@ -143,24 +142,29 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
             <motion.div variants={fadeUp} initial="hidden" animate="visible" className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-semibold tracking-wider text-white/80">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 font-bold tracking-wide text-cyan-300 text-sm shadow-[0_0_20px_rgba(6,182,212,0.2)]">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                Approval Uplift | Increased Revenue
+                Payment Revenue Uplift Advisory
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-[clamp(3rem,5vw,4.5rem)] leading-[1.1] font-serif font-extrabold tracking-tight">
-                Your payment stack<br />
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">is leaking millions.</span><br />
-                We recover it.
+                Your Payment Stack<br />
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">is Leaking Revenue.</span><br />
+                ApproveXPay helps Recover It.
               </h1>
-              <p className="text-lg md:text-xl text-white/70 max-w-[520px] leading-relaxed">
-                5—15% of transactions fail across fintech and e-commerce platforms. A significant portion is avoidable. We identify the root causes and build the orchestration layer to recover that revenue — systematically. <span className="text-red-400 font-semibold">Inaction cost businesses significantly! Act Now!</span>
+              <p className="text-lg md:text-xl text-white/70 max-w-[540px] leading-relaxed">
+                ApproveXPay helps high volume digital businesses improve authorization rates, reduce false declines and recover lost revenue across gateways, issuers, acquirers, PSPs and geographies.
+                <br /><br />
+                <span className="text-white/55 text-base italic">Servicing fintechs, subscription businesses, marketplaces, gaming, travel and PE/VC–backed companies.</span>
               </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button onClick={() => setBookingOpen(true)} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl px-8 py-6 text-lg font-medium shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-white/10">
-                  <CalendarIcon className="w-5 h-5 mr-2" /> Book a Free Audit
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <Button onClick={() => setBookingOpen(true)} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl px-7 py-5 text-base font-semibold shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-white/10">
+                  <CalendarIcon className="w-4 h-4 mr-2" /> Book Advisory Call
                 </Button>
-                <Button variant="outline" onClick={() => scrollTo("quantify")} className="bg-white/5 hover:bg-white/10 text-white border-white/10 rounded-xl px-8 py-6 text-lg font-medium backdrop-blur-sm">
-                  Quantify Your Loss <ArrowRight className="w-5 h-5 ml-2" />
+                <Button variant="outline" onClick={() => setContactOpen(true)} className="bg-white/5 hover:bg-white/10 text-white border-white/10 rounded-xl px-7 py-5 text-base font-medium backdrop-blur-sm">
+                  Request Payment Assessment
+                </Button>
+                <Button onClick={() => setBookingOpen(true)} className="bg-white/[0.06] hover:bg-white/[0.10] text-cyan-300 border border-cyan-500/30 rounded-xl px-7 py-5 text-base font-medium backdrop-blur-sm">
+                  Discuss Revenue Uplift <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
             </motion.div>
@@ -175,7 +179,7 @@ export default function HomePage() {
                   <p className="text-white/90 text-lg font-semibold leading-snug">incremental annual revenue loss</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
                   <p className="text-white/60 text-sm leading-relaxed">
-                    <span className="text-cyan-300 font-bold">1% approval uplift</span> can generate <span className="text-emerald-300 font-bold">$1M+ incremental annual revenue</span> for merchants processing <span className="text-white font-semibold">$100M</span> per month.
+                    <span className="text-cyan-300 font-bold">1% approval uplift</span> can generate <span className="text-emerald-300 font-bold">$1M+ incremental annual revenue</span> for businesses processing <span className="text-white font-semibold">$100M</span> per month.
                   </p>
                 </div>
                 <div className="mt-5 grid grid-cols-3 gap-3 text-center">
@@ -313,42 +317,41 @@ export default function HomePage() {
       <section id="services" className="py-20 bg-[#0a0f1e]">
         <div className="container mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-14">
-            <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">Services</span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-4">End-to-end payment revenue recovery.</h2>
+            <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">Services & Business Outcome</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-extrabold mb-4 bg-gradient-to-r from-cyan-300 via-white to-blue-300 bg-clip-text text-transparent">ApproveXPay identifies and recovers these hidden losses.</h2>
           </motion.div>
-          <div className="space-y-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((svc, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="bg-white/[0.02] border border-white/10 rounded-[20px] p-7 hover:border-white/15 transition-colors">
-                <div className="grid lg:grid-cols-12 gap-6">
-                  <div className="lg:col-span-4">
-                    <div className="text-cyan-400 text-sm font-bold mb-2">Service {svc.num}</div>
-                    <h3 className="text-2xl font-serif font-bold mb-2">{svc.title}</h3>
-                    <p className="text-white/55 text-sm mb-4">{svc.sub}</p>
-                    <div className="space-y-1.5">
-                      {svc.highlights.map((h, j) => (
-                        <div key={j} className="flex items-center gap-2 text-cyan-400 text-xs font-semibold">
-                          <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" /> {h}
-                        </div>
-                      ))}
+                className="bg-white/[0.02] border border-white/10 rounded-[20px] p-6 hover:border-cyan-500/20 hover:bg-white/[0.04] transition-all flex flex-col gap-5">
+                <div>
+                  <div className="text-cyan-400 text-xs font-bold mb-2 tracking-widest uppercase">Service {svc.num}</div>
+                  <h3 className="text-xl font-serif font-bold mb-2 text-white">{svc.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{svc.sub}</p>
+                </div>
+                <div className="space-y-1.5">
+                  {svc.highlights.map((h, j) => (
+                    <div key={j} className="flex items-center gap-2 text-cyan-400 text-xs font-semibold">
+                      <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" /> {h}
                     </div>
-                  </div>
-                  <div className="lg:col-span-4">
-                    <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">What We Do</p>
-                    <ul className="space-y-1.5">
-                      {svc.whatWeDo.map((w, j) => (
-                        <li key={j} className="text-sm text-white/65 flex gap-2"><span className="text-white/30">—</span>{w}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="lg:col-span-4">
-                    <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">Deliverables</p>
-                    <ul className="space-y-1.5">
-                      {svc.deliverables.map((d, j) => (
-                        <li key={j} className="text-sm text-white/65 flex gap-2"><span className="text-white/30">—</span>{d}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  ))}
+                </div>
+                <div className="h-px bg-white/5" />
+                <div>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-2.5">What We Do</p>
+                  <ul className="space-y-1.5">
+                    {svc.whatWeDo.map((w, j) => (
+                      <li key={j} className="text-sm text-white/60 flex gap-2"><span className="text-cyan-500/50 mt-0.5">▸</span>{w}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-2.5">Deliverables</p>
+                  <ul className="space-y-1.5">
+                    {svc.deliverables.map((d, j) => (
+                      <li key={j} className="text-sm text-white/60 flex gap-2"><span className="text-emerald-500/50 mt-0.5">▸</span>{d}</li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
@@ -360,7 +363,7 @@ export default function HomePage() {
       <section id="engagement-model" className="py-20 relative">
         <div className="container mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-14">
-            <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">Engagement Model</span>
+            <span className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3 block">Ideal Clients & Engagement Model</span>
             <h2 className="text-4xl md:text-5xl font-serif mb-4">From audit to outcomes in 8 weeks.</h2>
             <p className="text-lg text-white/60 max-w-3xl">We don't just deliver decks. We work alongside your engineering and product teams to implement changes with a bias for rapid, measurable improvements.</p>
           </motion.div>
@@ -423,7 +426,7 @@ export default function HomePage() {
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
               {[
-                { title: "Deep Payments Domain Expertise", sub: "20 Years Experience", desc: "Two decades navigating the complexities of global payment networks, issuer behaviour, and authorization optimization across markets and verticals." },
+                { title: "Deep Global Payments Expertise", sub: "20 Years Experience", desc: "Two decades navigating global payment networks across the US, Europe, MENA and APAC — spanning multi-currency environments, cross-border routing, and issuer behaviour optimization in diverse regulatory landscapes." },
                 { title: "Large-Scale Transaction Ecosystems", sub: "$20B monthly volume at Mastercard Payment Gateway", desc: "Direct experience managing and optimizing payment flows at extraordinary scale — giving us unmatched perspective on what breaks at volume." },
                 { title: "Practical Implementation Focus", sub: "Led Global Mastercard Payment Gateway", desc: "We don't stop at strategy. We embed with your team and drive hands-on implementation of orchestration layers, routing rules, and retry frameworks." },
                 { title: "Executive Advisory Capability", sub: "Director, Mastercard Payment Gateway Services", desc: "Board-level communication — we translate technical payment improvements into business outcomes that executives and investors understand." },
@@ -471,7 +474,6 @@ export default function HomePage() {
             {/* Brand */}
             <div className="md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <img src="https://hercules-cdn.com/file_E2Kto5hqQfdbFSbDy30zHMdC" alt="ApproveXPay" className="h-8 rounded-full" />
                 <span className="font-serif text-lg font-bold">ApproveXPay</span>
               </div>
               <p className="text-white/50 text-sm leading-relaxed mb-5">

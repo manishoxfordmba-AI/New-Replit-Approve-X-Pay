@@ -1,0 +1,20 @@
+Replit feedback 
+-	Remove Logo
+-	Change “Approval Uplift | Increased Revenue” to “Payment Revenue Uplift Advisory” – make it bold, highlighted and more visible.
+-	Change “Your payment stack is leaking millions. We recover it.” To “Your Payment Stack is Leaking Revenue.  ApproveXPay helps Recover It.
+-	Change “5—15% of transactions fail across fintech and e-commerce platforms. A significant portion is avoidable. We identify the root causes and build the orchestration layer to recover that revenue — systematically. Inaction cost businesses significantly! Act Now!” to “ApproveXPay helps high volume digital businesses improve authorization rates, reduce false decline and recover lost revenue across gateways, issuers, acquirers, PSPs and geographies. 
+
+Servicing fintechs, subscription businesses, marketplaces, gaming, travel and PE/VC – backed companies ”
+-	Remove “Book Free Audit” and “Quantify your loss” buttons. And add “Book Advisory Call” button connected to call booking calendar, “Request Payment Assessment” button connected to “Contact us” page , “Discuss Revenue Uplift” button connected to call booking calendar
+Connect.
+-	Change “1% approval uplift can generate $1M+ incremental annual revenue for merchants processing $100M per month.” To “1% approval uplift can generate $1M+ incremental annual revenue for businesses processing $100M per month.”
+-	Don’t change link text on the Top bar and also keep their current linkages
+-	Under the services section – in each service card consolidate “What we do” to max 3 main points and “Deliverables” also max 3 main.
+-	Under the “Services” section redesign all the 5 service cards in vertical format. 
+-	Change “Services” text to “Services & Business Outcome”
+-	Under the services section change “End-to-end payment revenue recovery.” text to “ApproveXPay identifies and recover these hidden losses.” – highlight it, bold it and make it very visible.
+-	Under the “Services” section convert all 5 services cards from horizontal card to vertical card format.
+-	Change “Engagement Model” text to “Ideal clients & Engagement Model”
+-	Under the “WHY US” section change “Deep Payments Domain Expertise” text to “Deep Global Payments Expertise” also in description use multi-currency and multi-geo point of views too
+-	 Remove the logo from footer. But don’t change anything else and keep the connections/links as is.
+
