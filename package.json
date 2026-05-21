@@ -5,6 +5,11 @@
     "build": "vite build"
   }
 }
+{
+  "engines": {
+    "node": "20.x"
+  }
+}
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
