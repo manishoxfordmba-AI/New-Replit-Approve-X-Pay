@@ -1,4 +1,10 @@
 {
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  }
+}
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
